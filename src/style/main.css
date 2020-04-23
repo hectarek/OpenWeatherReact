@@ -1,0 +1,9 @@
+.background-image {
+    background: lightblue;
+    height: 750px;
+}
+
+.mid-menu {
+    position: absolute;
+    top: 55%;
+}
