@@ -100,7 +100,7 @@ class App extends React.Component {
         condition: data.list[0].weather[0].main,
         city: data.city.name,
         country: data.city.country,
-        temp: data.list[0].main.temp,
+        temp: Math.floor(data.list[0].main.temp),
         feels_like: data.list[0].main.feels_like,
         temp_max: data.list[0].main.temp_max,
         temp_min: data.list[0].main.temp_min,

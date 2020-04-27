@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "hectorweatherapp",
+    "public": "build",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
