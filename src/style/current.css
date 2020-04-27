@@ -2,8 +2,19 @@
     text-align: center;
     position: relative;
     top: 25%;
-    left: 5%;
-    color: white;
+    left: 25%;
+    color: #2f2f2f;
+    border-radius: 25px;
+    width: 70%;
+}
+
+.current-icon {
+    text-align: center;
+    position: relative;
+    top: 20%;
+    left: 15%;
+    border-radius: 25px;
+    width: 60%;
 }
 
 .current h2 {
@@ -16,6 +27,6 @@
 }
 
 .current h1{
-    font-size: 96px;
+    font-size: 80px;
     margin: 40px;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/current.css'
 
 //import used icons
 import { WiDaySunny} from 'weather-icons-react' 
@@ -14,7 +13,7 @@ import { WiFog} from 'weather-icons-react'
 function Icon(props) {
 
     return (
-        <div className='current'>
+        <div className='current-icon'>
             {props.icon}
         </div>
     )
