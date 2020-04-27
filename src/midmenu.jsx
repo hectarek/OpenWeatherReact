@@ -10,10 +10,7 @@ return (
             <Nav.Link eventKey='link-0' className='nav-link'>Conditions</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-1">Other Info</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-            <Nav.Link eventKey="link-2">Forecast</Nav.Link>
+            <Nav.Link eventKey="link-1">Forecast</Nav.Link>
         </Nav.Item>
     </Nav>
     )

@@ -3,9 +3,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;
+    width: 101.3%;
 }
 
-.mid-menu {
-    position: absolute;
-    top: 55%;
+
+.tabs {
+    width: 100%;
 }

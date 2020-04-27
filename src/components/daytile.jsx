@@ -9,7 +9,7 @@ function DayTile(props) {
         <Accordion>
             <Card >
                 <Accordion.Toggle as={Card.Header} eventKey="0">
-                    <h3>{props.day} <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sort_down_font_awesome.svg/512px-Sort_down_font_awesome.svg.png' alt='arrow' width='20'/></h3>
+                    <h6>{props.day} <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sort_down_font_awesome.svg/512px-Sort_down_font_awesome.svg.png' alt='arrow' width='20'/></h6>
                 </Accordion.Toggle>
                 <Accordion.Collapse eventKey="0">
                     <Card.Body >

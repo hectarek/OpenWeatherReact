@@ -3,7 +3,6 @@ import React from 'react';
 // Importing Local Components
 import Header from './components/header'
 import Current from './components/current'
-import MidMenu from './components/midmenu'
 import DayTile from './components/daytile'
 import Icon from './components/icon'
 import Conditions from './components/conditions'
@@ -14,6 +13,8 @@ import './style/main.css'
 //Importing Bootstrap
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Tab from 'react-bootstrap/Tab'
+import Nav from 'react-bootstrap/Nav'
 
 //import timezone
 import moment from 'moment'
@@ -44,10 +45,13 @@ const iconMap = {
     "Mist": <WiFog size={400} color="#2f2f2f" />
 }
 
+
+
 class App extends React.Component {
 
   state = {
     time: undefined,
+    date: undefined,
     condition: undefined,
     city: undefined,
     country: undefined,
@@ -81,7 +85,7 @@ class App extends React.Component {
     forecastDays.push(
       <DayTile 
         key={i}
-        day={moment(data.list[i].dt_txt).format('dddd')}
+        day={moment(data.list[i].dt_txt).format('dddd MMMM Do')}
         feels_like={data.list[i].main.feels_like}
         temp_max={data.list[i].main.temp_max}
         temp_min={data.list[i].main.temp_min}
@@ -92,6 +96,7 @@ class App extends React.Component {
     if (city) {
       this.setState({
         time: time.utcOffset(data.city.timezone/60/60).format('hh:mm a'), 
+        date: (moment(data.list[0].dt_txt).format('dddd MMMM Do')),
         condition: data.list[0].weather[0].main,
         city: data.city.name,
         country: data.city.country,
@@ -109,6 +114,7 @@ class App extends React.Component {
     } else {
       this.setState({
         time: undefined, 
+        date: undefined,
         condition: undefined,
         city: undefined,
         country: undefined,
@@ -141,24 +147,44 @@ class App extends React.Component {
             country={this.state.country}
             temp={this.state.temp}
             error={this.state.error}
+            date={this.state.date}
             /></Col>
           <Col><Icon 
             icon={iconMap[this.state.icon]}
           /></Col>
         </Row>
-  
-        <MidMenu className="mid-menu"/>
-  
-        <Conditions 
-          time={this.state.time}
-          feels_like={this.state.feels_like}
-          temp_max={this.state.temp_max}
-          temp_min={this.state.temp_min}
-          humidity={this.state.humidity}
-          error={this.state.error}
-        />
-      
-        {this.state.forecast}
+
+        <Tab.Container defaultActiveKey="Conditions" >
+            <Row>
+              <Nav variant="tabs" defaultActiveKey="Conditions" className='row justify-content-around tabs'>
+                  <Nav.Item>
+                      <Nav.Link eventKey='Conditions'>Conditions</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                      <Nav.Link eventKey="Forecast">Forecast</Nav.Link>
+                  </Nav.Item>
+              </Nav> 
+            </Row> 
+            
+            <Row>
+              <Tab.Content className='tabs'>
+                <Tab.Pane eventKey="Conditions">
+                  <Conditions 
+                    time={this.state.time}
+                    feels_like={this.state.feels_like}
+                    temp_max={this.state.temp_max}
+                    temp_min={this.state.temp_min}
+                    humidity={this.state.humidity}
+                    error={this.state.error}
+                    />
+                </Tab.Pane>
+                <Tab.Pane eventKey="Forecast">
+                  {this.state.forecast}
+                </Tab.Pane>
+              </Tab.Content>
+            </Row>
+          </Tab.Container>
+        
         
       </>
     );

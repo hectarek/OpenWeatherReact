@@ -1,8 +1,10 @@
-h3 {
-    padding: 10px;
-    font-size: 18px;
+h6 {
+    margin-left: 10px;
+    padding: 12px;
 }
 
+
 p {
-    padding: 8px;
+    margin-left: 20px;
+    padding: 10px;
 }
